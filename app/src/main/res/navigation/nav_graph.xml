@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/landing_fragment">
+
+    <fragment
+        android:id="@+id/landing_fragment"
+        android:name="com.winter.charactersheet.fragments.LandingFragment"
+        android:label="@string/landing_fragment_label"
+        tools:layout="@layout/landing_fragment">
+
+        <action
+            android:id="@+id/action_landing_to_create_character"
+            app:destination="@id/create_character_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/create_character_fragment"
+        android:name="com.winter.charactersheet.fragments.CreateCharacterFragment"
+        android:label="@string/create_character_fragment_label"
+        tools:layout="@layout/create_character_fragment">
+
+        <action
+            android:id="@+id/action_create_character_to_landing"
+            app:destination="@id/landing_fragment" />
+    </fragment>
+</navigation>
