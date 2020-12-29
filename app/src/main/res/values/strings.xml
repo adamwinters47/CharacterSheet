@@ -7,10 +7,14 @@
     <string name="landing_fragment_label">Landing Fragment</string>
     <string name="create_character_fragment_label">Create Character</string>
     <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="back">Back</string>
     <string name="create_character">Create a Character</string>
     <string name="load_character">Load a Character</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="select_character_clazz">Select Character Class</string>
+    <string name="select_character_race">Select Character Race</string>
+    <string name="enter_character_name">Enter Character Name</string>
+    <string name="enter_character_addl_info">Enter Additional Character Information</string>
+    <string name="addl_info_hint">Additional Character Info</string>
+    <string name="name_hint">Name</string>
+    <string name="save_character">Save Character</string>
 </resources>
