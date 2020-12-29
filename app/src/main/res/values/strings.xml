@@ -11,5 +11,10 @@
     <string name="create_character">Create a Character</string>
     <string name="load_character">Load a Character</string>
     <string name="select_character_clazz">Select Character Class</string>
+    <string name="select_character_race">Select Character Race</string>
     <string name="enter_character_name">Enter Character Name</string>
+    <string name="enter_character_addl_info">Enter Additional Character Information</string>
+    <string name="addl_info_hint">Additional Character Info</string>
+    <string name="name_hint">Name</string>
+    <string name="save_character">Save Character</string>
 </resources>

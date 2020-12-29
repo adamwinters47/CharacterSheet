@@ -1,14 +1,15 @@
 package com.winter.charactersheet.models;
 
-public class Character {
+import java.io.Serializable;
+
+public class PlayerCharacter implements Serializable {
 
     private String name;
     private String race;
     private String clazz;
     private String addlInfo;
 
-    public Character() {
-    }
+    public PlayerCharacter() {}
 
     public String getName() {
         return name;
@@ -42,5 +43,13 @@ public class Character {
         this.addlInfo = addlInfo;
     }
 
-
+    @Override
+    public String toString() {
+        return "PlayerCharacter{" +
+                "name='" + name + '\'' +
+                ", race='" + race + '\'' +
+                ", clazz='" + clazz + '\'' +
+                ", addlInfo='" + addlInfo + '\'' +
+                '}';
+    }
 }

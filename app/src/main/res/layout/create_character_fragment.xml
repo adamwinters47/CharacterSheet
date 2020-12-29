@@ -6,17 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".fragments.CreateCharacterFragment">
 
-
-    <Button
-        android:id="@+id/btn_main_menu"
+    <TextView
+        android:id="@+id/txt_character_name_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/back"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        android:text="@string/enter_character_name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.88" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_text_text_character_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/name_hint"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/txt_character_name_label"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="@+id/txt_character_name_label"
+        app:layout_constraintTop_toBottomOf="@+id/txt_character_name_label" />
+
+    <TextView
+        android:id="@+id/txt_clazz_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/select_character_clazz"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txt_character_name_label"
+        app:layout_constraintStart_toStartOf="@+id/txt_character_name_label"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_text_character_name" />
 
     <Spinner
         android:id="@+id/spinner_character_clazz"
@@ -24,41 +52,80 @@
         android:layout_height="wrap_content"
         android:spinnerMode="dropdown"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/txtClazzLabel"
-        app:layout_constraintStart_toStartOf="@+id/txtClazzLabel"
-        app:layout_constraintTop_toBottomOf="@+id/txtClazzLabel" />
+        app:layout_constraintEnd_toEndOf="@+id/txt_clazz_label"
+        app:layout_constraintStart_toStartOf="@+id/txt_clazz_label"
+        app:layout_constraintTop_toBottomOf="@+id/txt_clazz_label" />
 
     <TextView
-        android:id="@+id/txtClazzLabel"
+        android:id="@+id/txt_race_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/select_character_clazz"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="@string/select_character_race"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/txt_clazz_label"
+        app:layout_constraintStart_toStartOf="@+id/txt_clazz_label"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_character_clazz" />
+
+    <Spinner
+        android:id="@+id/spinner_character_race"
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/txt_race_label"
+        app:layout_constraintStart_toStartOf="@+id/txt_race_label"
+        app:layout_constraintTop_toBottomOf="@+id/txt_race_label" />
+
+    <Button
+        android:id="@+id/btn_main_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/back"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/button_save_character"
+        app:layout_constraintVertical_bias="0.1" />
 
     <TextView
-        android:id="@+id/textCharacterName"
+        android:id="@+id/text_addl_info_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/enter_character_name"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="16dp"
+        android:text="@string/enter_character_addl_info"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txt_race_label"
+        app:layout_constraintStart_toStartOf="@+id/txt_race_label"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_character_race" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/edit_text_additional_character_info"
+        android:layout_width="347dp"
+        android:layout_height="199dp"
+        android:ems="10"
+        android:gravity="top|left"
+        android:hint="@string/addl_info_hint"
+        android:inputType="textMultiLine"
+        android:scrollHorizontally="false"
+        app:layout_constraintEnd_toEndOf="@+id/text_addl_info_label"
+        app:layout_constraintStart_toStartOf="@+id/text_addl_info_label"
+        app:layout_constraintTop_toBottomOf="@+id/text_addl_info_label" />
+
+    <Button
+        android:id="@+id/button_save_character"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/textCharacterName"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="@+id/textCharacterName"
-        app:layout_constraintTop_toBottomOf="@+id/textCharacterName" />
+        android:layout_marginTop="16dp"
+        android:text="@string/save_character"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_additional_character_info" />
 </androidx.constraintlayout.widget.ConstraintLayout>
