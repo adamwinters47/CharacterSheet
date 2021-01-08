@@ -46,10 +46,10 @@ public class PlayerCharacter implements Serializable {
     @Override
     public String toString() {
         return "PlayerCharacter{" +
-                "name=" + name +
-                ", race=" + race +
-                ", clazz=" + clazz  +
-                ", addlInfo=" + addlInfo +
+                "name='" + name + '\'' +
+                ", race='" + race + '\'' +
+                ", clazz='" + clazz + '\'' +
+                ", addlInfo='" + addlInfo + '\'' +
                 '}';
     }
 }
