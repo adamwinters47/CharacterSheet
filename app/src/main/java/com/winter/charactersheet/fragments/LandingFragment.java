@@ -33,4 +33,29 @@ public class LandingFragment extends Fragment {
             }
         });
     }
+    /*
+    Reference for how to load list of fileNames
+                  String[] files = getContext().fileList();
+                StringBuilder fileList = new StringBuilder();
+                for(String file : files){
+                    fileList.append(file + "\n");
+                }
+                characterAdditionalInfo.setText(fileList);
+      Reference for retrieving the JSON from a specific filename
+      private String fetchFileContents() throws FileNotFoundException {
+        FileInputStream fis = getContext().openFileInput("Adam");
+        InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);
+        StringBuilder stringBuilder = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
+            String line = reader.readLine();
+            while (line != null) {
+                stringBuilder.append(line);
+                line = reader.readLine();
+            }
+        } catch (IOException e) {
+            // Error occurred when opening raw file for reading.
+        }
+        return stringBuilder.toString();
+    }
+     */
 }

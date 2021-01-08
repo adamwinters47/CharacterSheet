@@ -1,5 +1,6 @@
 package com.winter.charactersheet.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,15 +14,28 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.google.gson.Gson;
 import com.winter.charactersheet.R;
 import com.winter.charactersheet.enums.ClazzEnum;
 import com.winter.charactersheet.enums.RaceEnum;
 import com.winter.charactersheet.models.PlayerCharacter;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CreateCharacterFragment extends Fragment {
+
+    EditText characterName;
+    EditText characterAdditionalInfo;
+    Spinner characterClazzSpinner;
+    Spinner characterRaceSpinner;
 
     @Override
     public View onCreateView(
@@ -35,9 +49,9 @@ public class CreateCharacterFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        EditText characterName = view.findViewById(R.id.edit_text_text_character_name);
+        characterName = view.findViewById(R.id.edit_text_text_character_name);
 
-        Spinner characterClazzSpinner = view.findViewById(R.id.spinner_character_clazz);
+        characterClazzSpinner = view.findViewById(R.id.spinner_character_clazz);
         List<String> characterClazzList = new ArrayList<>();
         for(ClazzEnum clazz : ClazzEnum.values()){
             characterClazzList.add(clazz.getClazzName());
@@ -45,7 +59,7 @@ public class CreateCharacterFragment extends Fragment {
         ArrayAdapter<String> clazzAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, characterClazzList);
         characterClazzSpinner.setAdapter(clazzAdapter);
 
-        Spinner characterRaceSpinner = view.findViewById(R.id.spinner_character_race);
+        characterRaceSpinner = view.findViewById(R.id.spinner_character_race);
         List<String> characterRaceList = new ArrayList<>();
         for(RaceEnum race : RaceEnum.values()){
             characterRaceList.add(race.getRaceName());
@@ -56,7 +70,7 @@ public class CreateCharacterFragment extends Fragment {
         view.findViewById(R.id.btn_main_menu).setOnClickListener(view1 -> NavHostFragment.findNavController(CreateCharacterFragment.this)
                 .navigate(R.id.action_create_character_to_landing));
 
-        EditText characterAdditionalInfo = view.findViewById(R.id.edit_text_additional_character_info);
+        characterAdditionalInfo = view.findViewById(R.id.edit_text_additional_character_info);
         Button saveCharacterButton = view.findViewById(R.id.button_save_character);
         saveCharacterButton.setOnClickListener(v -> {
             PlayerCharacter c = new PlayerCharacter();
@@ -64,7 +78,18 @@ public class CreateCharacterFragment extends Fragment {
             c.setRace(characterRaceSpinner.getSelectedItem().toString());
             c.setName(characterName.getText().toString());
             c.setAddlInfo(characterAdditionalInfo.getText().toString());
-            characterAdditionalInfo.setText(c.toString());
+
+            String fileName = c.getName();
+            try (FileOutputStream fos = getContext().openFileOutput(fileName, Context.MODE_PRIVATE)) {
+                Gson gson = new Gson();
+                String json = gson.toJson(c);
+
+                fos.write(json.getBytes());
+                System.out.println("Save Succeeded");
+            } catch (IOException e) {
+                System.out.println("Error Saving Character: " + e.getMessage());
+                e.printStackTrace();
+            }
         });
     }
 }
