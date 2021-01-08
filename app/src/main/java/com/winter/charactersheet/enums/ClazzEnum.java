@@ -1,6 +1,6 @@
 package com.winter.charactersheet.enums;
 
-public enum ClazzEnum {
+public enum ClazzEnum implements CharacterEnumInterface{
     ALCHEMIST("Alchemist"),
     ANTIPALADIN("Antipaladin"),
     ARCANIST("Arcanist"),
@@ -47,14 +47,15 @@ public enum ClazzEnum {
     WITCH("Witch"),
     WIZARD("Wizard");
 
-    private String clazzName;
+    private String name;
 
-    ClazzEnum(String clazzName){
-        this.clazzName = clazzName;
+    ClazzEnum(String name){
+        this.name = name;
     }
 
-    public String getClazzName(){
-        return clazzName;
+    @Override
+    public String getName(){
+        return name;
     }
 
 }

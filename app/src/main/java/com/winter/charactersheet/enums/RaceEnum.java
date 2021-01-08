@@ -1,6 +1,6 @@
 package com.winter.charactersheet.enums;
 
-public enum RaceEnum {
+public enum RaceEnum implements CharacterEnumInterface{
     AARAKOCRA("Aarakocra"),
     AASIMAR("Aasimar"),
     ANDROID("Android"),
@@ -74,12 +74,13 @@ public enum RaceEnum {
     YUAN_TI_PUREBLOOD("Yuan-ti Pureblood");
 
 
-    RaceEnum(String raceName){
-        this.raceName = raceName;
+    RaceEnum(String name){
+        this.name = name;
     }
-    private String raceName;
+    private String name;
 
-    public String getRaceName(){
-        return raceName;
+    @Override
+    public String getName(){
+        return name;
     }
 }
