@@ -13,8 +13,22 @@
         android:text="@string/create_character"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.336" />
+
+    <Spinner
+        android:id="@+id/spinner_load_character"
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/button_load"
+        app:layout_constraintEnd_toEndOf="@+id/button_load"
+        app:layout_constraintStart_toStartOf="@+id/button_load"
+        app:layout_constraintTop_toBottomOf="@+id/button_create"
+        app:layout_constraintVertical_bias="0.825" />
 
     <Button
         android:id="@+id/button_load"
@@ -23,7 +37,8 @@
         android:text="@string/load_character"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/button_create"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/button_create"
         app:layout_constraintTop_toBottomOf="@+id/button_create"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintVertical_bias="0.33" />
 </androidx.constraintlayout.widget.ConstraintLayout>
